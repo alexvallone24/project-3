@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My EV Heatmap</title>
+  
+  <!-- 1. Leaflet CSS -->
+  <link 
+    rel="stylesheet" 
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- 2. Leaflet JavaScript -->
+  <script 
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  
+  <!-- 3. Leaflet heat plugin -->
+  <!-- (You can use your local leaflet-heat.js if you prefer) -->
+  <script src="leaflet-heat.js"></script>
+  
+  <!-- 4. D3 library -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Simple CSS to size our map div -->
+  <style>
+    #map {
+      height: 600px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Electric Vehicles Heatmap (Sample)</h1>
+  <div id="map"></div>
+
+  <!-- 5. Our main JS file that loads the data & builds the map -->
+  <script src="app.js"></script>
+</body>
+</html>
