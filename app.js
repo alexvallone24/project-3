@@ -11,7 +11,6 @@ let myMap = L.map("map", {
   }).addTo(myMap);
   
   // 3. Load your JSON file. 
-  //    Replace "ev-data.json" with the actual path to your JSON.
   d3.json("ev-data.json").then(function(data) {
     console.log("First row:", data[0]);
 
