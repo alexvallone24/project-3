@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Charging Stations by State</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 20px; }
+        h1 { margin-bottom: 20px; }
+        .chart-container {
+            width: 80vw; /* 80% of the viewport width */
+            max-width: 1000px; /* Limit max width for better appearance */
+            height: 60vh; /* 60% of the viewport height */
+            margin: auto;
+        }
+        canvas { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+    <h1>EV Charging Stations by State</h1>
+    <div class="chart-container">
+        <canvas id="evChart"></canvas>
+    </div>
+</body>
+</html>
