@@ -18,4 +18,7 @@ Ethical Considerations:
 
 References:
   https://developer.nrel.gov/
+  
   https://catalog.data.gov/dataset/
+
+  https://afdc.energy.gov/data/10962
