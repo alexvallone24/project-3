@@ -13,8 +13,9 @@ EV Fuel Stations in the United States:
   
 
 Ethical Considerations:
-  *insert info here*
+  When looking at EV data in the United States, confidentiality is important to consider as the datasets include personal information, such as VIN numbers, that could be linked back to specific individuals. Furthermore, representation is crucial in order to prevent biased conclusions from forming. Since we mainly emphasized information centered in Washington, it is important to consider that these trends do not reflect the full picture of EV registration across every other state in the country.
 
 
 References:
-  *info here*
+  https://developer.nrel.gov/
+  https://catalog.data.gov/dataset/
