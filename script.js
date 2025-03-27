@@ -2,26 +2,26 @@
 
 // Load the JSON data using D3
 d3.json("electric_vehicles.json").then(function(data) {
-    // Count the occurrences of each 'Make'
-    let makeCounts = {};
+    // Count the occurrences of each 'Model Year'
+    let modelYearCounts = {};
 
-    // Loop through the data and count occurrences of 'Make'
+    // Loop through the data and count occurrences of 'Model Year'
     data.forEach(function(d) {
-        let make = d['Make'];
-        if (make in makeCounts) {
-            makeCounts[make]++;
+        let year = d['Model Year'];
+        if (year in modelYearCounts) {
+            modelYearCounts[year]++;
         } else {
-            makeCounts[make] = 1;
+            modelYearCounts[year] = 1;
         }
     });
 
     // Prepare the data for plotting
-    let makes = Object.keys(makeCounts);
-    let counts = makes.map(make => makeCounts[make]);
+    let years = Object.keys(modelYearCounts);
+    let counts = years.map(year => modelYearCounts[year]);
 
     // Create the bar chart with Plotly
     var trace = {
-        x: makes,  // Make names on the x-axis
+        x: years,  // Model years on the x-axis
         y: counts,  // Counts on the y-axis
         type: 'bar',  // Bar chart
         marker: {
@@ -30,8 +30,8 @@ d3.json("electric_vehicles.json").then(function(data) {
     };
 
     var layout = {
-        title: 'Electric Vehicle Make Distribution',  // Chart title
-        xaxis: { title: 'Make' },
+        title: 'Electric Vehicle Model Year Distribution',  // Chart title
+        xaxis: { title: 'Model Year' },
         yaxis: { title: 'Count' },
         width: 800,  // Set the width
         height: 600  // Set the height
