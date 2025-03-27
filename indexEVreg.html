@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EV Registrations - Pie & Bubble Charts</title>
+  <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+    .chart-container { margin: 40px auto; width: 90%; }
+  </style>
+</head>
+<body>
+  <h1>EV Registrations Across the U.S.</h1>
+  <div class="chart-container">
+    <h2>Top 10 States - Pie Chart</h2>
+    <div id="pieChart"></div>
+  </div>
+  <div class="chart-container">
+    <h2>EV Distribution by State - Bubble Chart</h2>
+    <div id="bubbleChart"></div>
+  </div>
+
+  <script>
+    // Load EV registration data
+    fetch('ev_registration_by_state.json')
+      .then(response => response.json())
+      .then(data => {
+        // Remove total
+        const filtered = data.filter(item => item.state !== 'Total');
+
+        // Sort by EV count
+        const sorted = [...filtered].sort((a, b) => b.ev_count - a.ev_count);
+
+        // Pie chart data (Top 10)
+        const top10 = sorted.slice(0, 10);
+        const pieData = [{
+          values: top10.map(d => d.ev_count),
+          labels: top10.map(d => d.state),
+          type: 'pie',
+          textinfo: 'label+percent',
+          insidetextorientation: 'radial'
+        }];
+
+        const pieLayout = {
+          height: 400,
+          width: 500,
+        };
+
+        Plotly.newPlot('pieChart', pieData, pieLayout);
+
+        // Bubble chart data (All states)
+        const bubbleData = [{
+          x: filtered.map(d => d.state),
+          y: filtered.map(d => d.ev_count),
+          text: filtered.map(d => `${d.state}: ${d.ev_count.toLocaleString()} EVs`),
+          mode: 'markers',
+          marker: {
+            size: filtered.map(d => (d.ev_count / sorted[0].ev_count) * 100),
+            color: filtered.map(d => d.ev_count),
+            colorscale: 'Viridis',
+            showscale: true
+          }
+        }];
+
+        const bubbleLayout = {
+          xaxis: { title: 'State', tickangle: -45 },
+          yaxis: { title: 'EV Count' },
+          height: 600,
+          margin: { t: 40 }
+        };
+
+        Plotly.newPlot('bubbleChart', bubbleData, bubbleLayout);
+      })
+      .catch(err => {
+        console.error('Error loading data:', err);
+        document.body.innerHTML += '<p style="color:red;">Failed to load EV registration data.</p>';
+      });
+  </script>
+</body>
+</html>
