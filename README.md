@@ -24,3 +24,5 @@ References:
   https://afdc.energy.gov/data/10962
 
 References for code: AI was utilized in order to troubleshoot errors with building js and html files.
+
+Note: It is important to note that we have separate html files for our individual visuals surrounding this topic. We were unable to merge our work into one html file to have it all run on a single webpage, however we have multiple webpages with several interactive visuals that heavily analyze and support the findings for this project!
